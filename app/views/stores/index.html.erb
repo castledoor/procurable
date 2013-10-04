@@ -1,0 +1,9 @@
+<h1>Procurable</h1>
+
+<%= link_to "Make a new store", new_store_path %>
+
+<% @stores.each do |store| %>
+  <h5><%= store.name %></h5>
+<% end %>
+
+

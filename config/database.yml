@@ -1,0 +1,8 @@
+
+development:
+  adapter: postgresql
+  database: procurable_development
+
+test:
+  adapter: postgresql
+  database: procurable_test
