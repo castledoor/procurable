@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :stores
+  has_many :items, through: :stores
 end

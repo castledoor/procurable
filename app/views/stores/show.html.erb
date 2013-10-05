@@ -1,0 +1,11 @@
+<h1><%= @store.name %></h1>
+
+<p><%= link_to "Add a item", new_item_path(:item => { store_id: @store.id }), id: "new_item_link", remote: true %></p>
+
+<ul id="list_of_items">
+  <% @store.items.each do |item| %>
+    <li><%= render(item) %></li>
+  <% end %>
+</ul>
+
+
