@@ -1,6 +1,5 @@
 class StoresController < ApplicationController
 
-  before_filter :authenticate_user!, only: [:new, :create, :destroy]
 
   def index
     @stores = Store.all
@@ -22,6 +21,23 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+  end
+
+  def update
+    @store = Store.find(params[:id])
+    if @store.update(store_params)
+      flash[:notice] = "Your store details have been edited"
+      redirect_to store_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @store = Store.find(params[:id])
+    @store.destroy
+    flash[:notice] = "BOOOM! Your store has been deleted"
+    redirect_to root_path
   end
 
 private

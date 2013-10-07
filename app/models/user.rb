@@ -6,4 +6,14 @@ class User < ActiveRecord::Base
 
   has_many :stores
   has_many :items, through: :stores
+
+  def store_owner?
+    Store.all.each do |store|
+      if user_id == store.user_id
+        return true
+      end
+    end
+  end
 end
+
+

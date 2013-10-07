@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'bootstrap-sass', git: 'https://github.com/thomas-mcdonald/bootstrap-sass'
+gem 'cancan'
 
 
 group :test, :development do
