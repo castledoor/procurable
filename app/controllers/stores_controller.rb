@@ -23,11 +23,20 @@ class StoresController < ApplicationController
     @store = Store.find(params[:id])
   end
 
+  def edit
+    @store = Store.find(params[:id])
+  end
+
   def update
     @store = Store.find(params[:id])
     if @store.update(store_params)
-      flash[:notice] = "Your store details have been edited"
-      redirect_to store_path
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Your store details have been edited"
+          redirect_to store_path
+        end
+        format.js
+      end
     else
       render :edit
     end
