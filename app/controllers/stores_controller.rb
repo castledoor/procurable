@@ -21,6 +21,7 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @item = @store.items.new
   end
 
   def edit

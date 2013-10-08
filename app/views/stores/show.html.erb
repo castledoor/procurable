@@ -1,8 +1,19 @@
 <h1 id="store-name"><%= @store.name %></h1>
 
-<p><%= link_to "Add a item", new_item_path(:item => { store_id: @store.id }), id: "new_item_link", remote: true %></p>
-  <h8><%= link_to "delete this store", @store, :method => :delete %></h8>
-  <h8><%= link_to "edit this store", edit_store_path(:store => {id: @store.id }), id: "edit_store_link", remote: true %><h8>
+<p>
+  <% if can? :create, @item %>
+    <%= link_to "Add a item", new_item_path(:item => { store_id: @store.id }), id: "new_item_link", remote: true %>
+  <% end %>
+</p>
+
+  <% if can? :destroy, @store %>
+    <h8><%= link_to "delete this store", @store, :method => :delete %></h8>
+  <% end %>
+  <h8>
+    <% if can? :update, @store %>
+    <%= link_to "edit this store", edit_store_path(:store => {id: @store.id }), id: "edit_store_link", remote: true %>
+    <% end %>
+  </h8>
 
 <ul id="list_of_items">
   <% @store.items.each do |item| %>
