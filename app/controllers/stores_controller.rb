@@ -3,6 +3,7 @@ class StoresController < ApplicationController
 
   def index
     @stores = Store.all
+    @store = Store.new
   end
 
   def new
@@ -14,6 +15,8 @@ class StoresController < ApplicationController
     if @store.save
       flash[:notice] = "Awesome, you just opened shop!"
        redirect_to(@store)
+    elsif 
+      flash[:notice] = "You cannot create a store without being logged in"
     else 
       render '/'
     end

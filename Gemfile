@@ -11,12 +11,15 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'bootstrap-sass', git: 'https://github.com/thomas-mcdonald/bootstrap-sass'
 gem 'cancan'
+gem 'factory_girl_rails'
 
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'capybara'
 end

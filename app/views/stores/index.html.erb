@@ -1,7 +1,10 @@
 <h1>Procurable</h1>
-<% if can? :create, @store %>
-  <%= link_to "Open a new store", new_store_path %>
-<% end %>
+
+<p>
+  <% if can? :create, @store %>
+    <%= link_to "Open a new store", new_store_path %>
+  <% end %>
+</p>
 
 <% @stores.each do |store| %>
   <h5><%= link_to store.name, store %></h5>

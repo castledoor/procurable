@@ -10,3 +10,4 @@ describe User do
     user.store_owner?.should be_true
   end
 end
+
