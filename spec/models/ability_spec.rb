@@ -21,9 +21,9 @@ describe "permissions" do
   end
 
   it "doesn't let a user create an item in someone else's store" do
-    store_owner = User.create!(:email => "email@email.com", :password => "password")
+    store_owner = FactoryGirl.create(:user)
     store = store_owner.stores.create!
-    other_user = User.create!(:email => "another@email.com", :password => "password")
+    other_user = FactoryGirl.create(:user)
     item = store.items.new
     ability = Ability.new(other_user)
     ability.should_not be_able_to(:create, item)
@@ -32,7 +32,7 @@ describe "permissions" do
   it "does not allow a user to create a store if they are not logged in" do
     unauthorized_user = User.new
     ability = Ability.new(unauthorized_user)
-    store = Store.new
+    store = FactoryGirl.create(:store, :user => unauthorized_user)
     ability.should_not be_able_to(:create, store)
   end
 end

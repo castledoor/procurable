@@ -10,6 +10,7 @@ class Ability
       can :create, Item, :store => { :user => user }
       can :update, Store, :user_id => user.id
       can :destroy, Store, :user_id => user.id
+      can :destroy, Item, :store => { :user => user }
     else
       can :read, :all
     end 

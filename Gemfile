@@ -12,6 +12,7 @@ gem 'devise'
 gem 'bootstrap-sass', git: 'https://github.com/thomas-mcdonald/bootstrap-sass'
 gem 'cancan'
 gem 'factory_girl_rails'
+gem 'guard-rspec'
 
 
 group :test, :development do

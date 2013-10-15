@@ -7,5 +7,6 @@ FactoryGirl.define do
   factory :store do
     name 'store_name'
     user #created a user for the store
-  end
+  end	
+
 end
